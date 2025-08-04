@@ -1,0 +1,7 @@
+flask
+pillow
+python-dotenv
+google-generativeai
+torch
+chatterbox-tts
+scipy
