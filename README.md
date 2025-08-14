@@ -8,7 +8,7 @@ Develop an automated system to predict how fit a candidate is for a given role b
 - Re-rank candidates when a candidate is starred.
    
 ## Project Structure
-```potential_talents
+```MonReader
 ├── data
 │  ├── Extended Dataset for Potential Talents.xlsx
 │  ├── talents.csv
