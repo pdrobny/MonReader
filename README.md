@@ -1,33 +1,59 @@
 # MonReader
 
 ## Project Overview
-Develop an automated system to predict how fit a candidate is for a given role based on their available information.
+An AI-powered reading assistant designed to help visually impaired users by extracting text from images and reading it aloud. The application combines computer vision for page flip detection, OCR text extraction, and voice synthesis in a seamless, automated reading experience.
 
 ## Goals
-- Rank candidates based on a fitness score.
-- Re-rank candidates when a candidate is starred.
+- Predict if the page is being flipped using a single image.
+- Extract text from the open pages.
+- Read the text aloud with optional voice cloning
+- Integrate feature into a single web based app.
    
 ## Project Structure
 ```MonReader
 ├── data
 │  ├── Extended Dataset for Potential Talents.xlsx
 │  ├── talents.csv
-├── notebooks
+├── pageflip
+│  ├── images
+│  │  ├── testing
+│  │  │  ├── flip
+│  │  │  ├── notflip
+│  │  ├── training
+│  │  │  ├── flip
+│  │  │  ├── notflip
+├── ocr
 │  ├── EDA_Embeddings.ipynb  #Data prep, EDA, Embedding models 
 │  ├── Learn_to_rank.ipynb  # Pairwise ranking using Ranknet 
 │  ├── starred_candidates.ipynb  # re-ranking candidates based on previously evaluated "starred candidates"
 │  ├── HF_qwen.ipynb # Using LLMs to find top 5 candidates based on search term with Hugging Face and Qwen
+├── tts
 │  ├── HF_Llama.ipynb # Using LLMs to find top 5 candidates based on search term with Hugging Face and Llama
 │  ├── HF_gemma.ipynb # Using LLMs to find top 5 candidates based on search term with Hugging Face and Gemma
 │  ├── HF_gemma_instructiontuning.ipynb # improving model performance with prompt instruction tuning
+├── monreader-app
 │  ├── HF_gemma_finetuning.ipynb # improving model performance with finetuning
 │  ├── API_groq.ipynb # Using LLMs to find top 5 candidates based on search term with Groq API
 ├── README.md
 ```
 ##  Installation and Setup
-Editor Used:  Google Colab
-Python Version:  3.11
-Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
+Pageflip detection:
+   IDE:  Google Colab
+   Python Version:  3.11
+   Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
+OCR text Extraction:
+   IDE:  Google Colab
+   Python Version:  3.11
+   Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
+Text to Speech TTS:
+   IDE:  Google Colab
+   Python Version:  3.11
+   Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
+App Building and Deployment:
+   IDE: VS
+   Web Framework: Flask
+   Containerization: Docker
+   Web hosting:  AWS EC2
 
 ## Data Description
 The data comes from the clients sourcing efforts. Any field that could directly reveal personal details was removed and each candidate was given a unique identifier. 
