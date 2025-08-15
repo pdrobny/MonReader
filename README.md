@@ -12,40 +12,38 @@ An AI-powered reading assistant designed to help visually impaired users by extr
 ## Project Structure
 ```MonReader
 ├── pageflip
-│  ├── images
-│  │  ├── testing
-│  │  │  ├── flip
-│  │  │  ├── notflip
-│  │  ├── training
-│  │  │  ├── flip
-│  │  │  ├── notflip
+│  ├── PaulNet_WnB.ipynb # custom CNN imageclassificaiton model with evaluation in weights and biases (wandb)
+│  ├── TL_WnB.ipynb # base for testing of pre-trained imageclassificaiton models with evaluation in weights and biases (wandb)
+│  ├── TL_WnB_FT.ipynb # finetuning pre-trained image classificaiton model with evaluation in weights and biases (wandb)
 ├── ocr
 │  ├── book_images/ # book page images for OCR text extraction and model evaluation
 │  ├── gemini_text_extract.ipynb # OCR using gemini-2.5-pro MLLM via gemini API
 │  ├── LLaVa_text_extract.ipynb # OCR using llava-hf/llava-1.5-7b-hf MLLM
 │  ├── ocr_text_extract.ipynb  # OCR evaluation of easyocr, pytessaract, paddleocr
 ├── tts
-│  ├── HF_Llama.ipynb # Using LLMs to find top 5 candidates based on search term with Hugging Face and Llama
-│  ├── HF_gemma.ipynb # Using LLMs to find top 5 candidates based on search term with Hugging Face and Gemma
-│  ├── HF_gemma_instructiontuning.ipynb # improving model performance with prompt instruction tuning
-├── monreader-app
-│  ├── HF_gemma_finetuning.ipynb # improving model performance with finetuning
-│  ├── API_groq.ipynb # Using LLMs to find top 5 candidates based on search term with Groq API
+│  ├── tts_kokoro.ipynb # tts using kokoro
+│  ├── tts_chatterbox.ipynb # tts using chatterbox
+├── app # folder containing files needed for app dockerization and deployment
+│  ├── templates
+│  │  ├── index.html # web page formatting template for flask app
+│  ├── Dockerfile # containerization file
+│  ├── monreader.py # flask app code
+│  ├── requirements.txt # list of required installs
 ├── README.md
 ```
 ##  Installation and Setup
 ### Pageflip detection:
 - IDE:  Google Colab
 - Python Version:  3.11
-- Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
+- Python Packages:  os, pandas, numpy, matplotlib, google.colab, sklearn, tensorflow, keras, warnings, ast
 ### OCR text Extraction:
 - IDE:  Google Colab
 - Python Version:  3.11
-- Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
+- Python Packages:  os, pandas, numpy, matplotlib, google.colab, google.generative.ai, datasets, pillow, torch, transformers, pytesseract, paddleocr, easyocr, nltk, warnings
 ### Text-to-speech TTS:
 - IDE:  Google Colab
 - Python Version:  3.11
-- Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
+- Python Packages: os, pandas, numpy, matplotlib, google.colab, sklearn, seaborn, random, wandb, ast, tensorflow, keras, warnings
 ### App Building and Deployment:
 - IDE: VS
 - Python Version: 3.10+
@@ -82,7 +80,9 @@ For OCR text extraction the images were personal photographs from 'The Theory of
 For voice cloning an 11 sec recording of my own voice in .wav was used.
 
 ## Methods  
-Page-Flip Detection:  Custom built (PaulNet) and pre-trained CCN image classification models(ResNet50, EfficientNetB0, and MobileNetV2) were tested and evaluated.  Weights and Biases (wandb.ai) was used to evaluate and log the accuracy of the different models, optimizers, pooling methods and number of epochs.
+Page-Flip Detection:  
+- Custom built CCN image classification model (PaulNet) and pre-trained CCN image classification models(ResNet50, EfficientNetB0, and MobileNetV2) were tested and evaluated.
+- Weights and Biases (wandb.ai) was used to evaluate and log the accuracy of the different models, optimizers, pooling methods and number of epochs.
 
 OCR Text Extraction: A wordcloud showed data scientist, data analyst, and machine learning were frequently used words in the titles of candidates.  A box plot was used show screening score ranges by country.  Chloropeth maps were used to average screening by country.
 
