@@ -48,9 +48,27 @@ An AI-powered reading assistant designed to help visually impaired users by extr
 - Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
 ### App Building and Deployment:
 - IDE: VS
+- Python Version: 3.10+
+- Voice Synthesis:  Neural voice cloning model via Chatterbox
 - Web Framework: Flask
 - Containerization: Docker
 - Web hosting:  AWS EC2
+
+#### Running app Locally:
+1. Start Flask App
+python monreader.py
+
+2. Access in Browser
+http://localhost:5000
+
+#### Running with Docker
+docker build -t monreader-app .
+docker run -p 5000:5000 monreader-app
+
+#### App usage:
+1. Upload an image of a page.
+2. Upload a voice sample for voice cloning (optional) or leave blank for default voice.
+3. Extracted text is read aloud with a synthesized voice.
 
 ## Data Description
 For the page flip detection the data provided were .jpg images clipped from a page flipping video and labelled as flip or notflip and split between training and test sets.  The training set contains ~1100 images eachof flip and not flip.  The test set contains ~1100 images eachof flip and not flip.
