@@ -56,14 +56,20 @@ An AI-powered reading assistant designed to help visually impaired users by extr
 
 #### Running app Locally:
 1. Start Flask App
-'''python monreader.py'''
+```bash
+python monreader.py
+```
 
-2. Access in Browser
+3. Access in Browser
+```arduino
 http://localhost:5000
+```
 
 #### Running with Docker
+```bash
 docker build -t monreader-app .
 docker run -p 5000:5000 monreader-app
+```
 
 #### App usage:
 1. Upload an image of a page.
