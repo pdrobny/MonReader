@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>MonReader</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 700px;
+        margin: auto;
+        padding: 20px;
+      }
+      textarea {
+        width: 100%;
+        height: 300px;
+      }
+      .hero {
+        text-align: center;
+        padding: 40px 20px;
+        margin-bottom: 30px;
+        background-color: #8ab2d8;
+        border-radius: 8px;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        color: #555;
+      }
+      #loading {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="hero">
+      <h1>MonReader</h1>
+      <p>AI-powered book page reader with voice synthesis</p>
+    </div>
+
+    <h2>Upload Image to Extract Text and Generate Speech</h2>
+    <hr style="border-top: 3px solid #333;">
+    <form method="POST" enctype="multipart/form-data" onsubmit="showLoading()">
+      <label>Image of book page:</label><br>
+      <input type="file" name="image" accept="image/*" required><br><br>
+
+      <label>Voice sample for cloning (optional):</label><br>
+      <input type="file" name="voice" accept="audio/*"><br><br>
+
+      <button type="submit" class="btn btn-primary">Extract and Generate Voice</button>
+    </form>
+
+    <!-- Loading spinner and message -->
+    <div id="loading">
+      <div class="spinner-border text-primary" role="status"></div>
+      <p class="mt-2">Processing... Please wait.</p>
+    </div>
+
+    {% if extracted_text %}
+      <hr>
+      <h3>Extracted Text:</h3>
+      <hr style="border-top: 3px solid #333;">
+      <textarea readonly>{{ extracted_text }}</textarea>
+
+      {% if audio_url %}
+        <h3>Generated Audio:</h3>
+        <hr style="border-top: 3px solid #333;">
+        <audio controls>
+          <source src="{{ audio_url }}" type="audio/wav">
+          Your browser does not support audio playback.
+        </audio>
+      {% endif %}
+    {% endif %}
+
+    <script>
+      function showLoading() {
+        document.getElementById("loading").style.display = "block";
+      }
+    </script>
+
+  </body>
+</html>
