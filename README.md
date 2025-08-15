@@ -56,7 +56,7 @@ An AI-powered reading assistant designed to help visually impaired users by extr
 
 #### Running app Locally:
 1. Start Flask App
-python monreader.py
+'''python monreader.py'''
 
 2. Access in Browser
 http://localhost:5000
