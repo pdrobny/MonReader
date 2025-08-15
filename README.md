@@ -11,9 +11,6 @@ An AI-powered reading assistant designed to help visually impaired users by extr
    
 ## Project Structure
 ```MonReader
-├── data
-│  ├── Extended Dataset for Potential Talents.xlsx
-│  ├── talents.csv
 ├── pageflip
 │  ├── images
 │  │  ├── testing
@@ -23,10 +20,10 @@ An AI-powered reading assistant designed to help visually impaired users by extr
 │  │  │  ├── flip
 │  │  │  ├── notflip
 ├── ocr
-│  ├── EDA_Embeddings.ipynb  #Data prep, EDA, Embedding models 
-│  ├── Learn_to_rank.ipynb  # Pairwise ranking using Ranknet 
-│  ├── starred_candidates.ipynb  # re-ranking candidates based on previously evaluated "starred candidates"
-│  ├── HF_qwen.ipynb # Using LLMs to find top 5 candidates based on search term with Hugging Face and Qwen
+│  ├── book_images/ # book page images for OCR text extraction and model evaluation
+│  ├── gemini_text_extract.ipynb # OCR using gemini-2.5-pro MLLM via gemini API
+│  ├── LLaVa_text_extract.ipynb # OCR using llava-hf/llava-1.5-7b-hf MLLM
+│  ├── ocr_text_extract.ipynb  # OCR evaluation of easyocr, pytessaract, paddleocr
 ├── tts
 │  ├── HF_Llama.ipynb # Using LLMs to find top 5 candidates based on search term with Hugging Face and Llama
 │  ├── HF_gemma.ipynb # Using LLMs to find top 5 candidates based on search term with Hugging Face and Gemma
@@ -56,8 +53,7 @@ App Building and Deployment:
    Web hosting:  AWS EC2
 
 ## Data Description
-The data comes from the clients sourcing efforts. Any field that could directly reveal personal details was removed and each candidate was given a unique identifier. 
-
+The data provided for 
 Attributes:
 
 - id: unique identifier for candidate (numeric)
