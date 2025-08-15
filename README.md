@@ -42,7 +42,7 @@ OCR text Extraction:
    IDE:  Google Colab
    Python Version:  3.11
    Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
-Text to Speech TTS:
+Text-to-speech TTS:
    IDE:  Google Colab
    Python Version:  3.11
    Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
@@ -53,23 +53,16 @@ App Building and Deployment:
    Web hosting:  AWS EC2
 
 ## Data Description
-The data provided for 
-Attributes:
-
-- id: unique identifier for candidate (numeric)
-
-- title: job title for candidate (text)
-
-- location: geographical location for candidate (text)
-
-- screening_score: pre-determined score 0-100 (numeric)
+For the page flip detection the data provided were .jpg images clipped from a page flipping video and labelled as flip or notflip and split between training and test sets.  The training set contains ~1100 images eachof flip and not flip.  The test set contains ~1100 images eachof flip and not flip.
+For OCR text extraction the images were personal photographs from 'The Theory of Everything" by Stephen Hawking.
+For voice cloning an 11 sec recording of my own voice in .wav was used.
 
 ## Methods  
-Data Collection and Preparation:  The data was checked for validity and completeness.  Multiple entries had missing or invalid titles and were removed as they would not useful for this analysis.
+Page-Flip Detection:  Custom built (PaulNet) and pre-trained CCN image classification models(ResNet50, EfficientNetB0, and MobileNetV2) were tested and evaluated.  Weights and Biases (wandb.ai) was used to evaluate and log the accuracy of the different models, optimizers, pooling methods and number of epochs.
 
-Expoloratory Data Analysis: A wordcloud showed data scientist, data analyst, and machine learning were frequently used words in the titles of candidates.  A box plot was used show screening score ranges by country.  Chloropeth maps were used to average screening by country.
+OCR Text Extraction: A wordcloud showed data scientist, data analyst, and machine learning were frequently used words in the titles of candidates.  A box plot was used show screening score ranges by country.  Chloropeth maps were used to average screening by country.
 
-Modeling: 
+Text-to-speech (TTS): 
 -  Embedding Models: Word embedding models (tfidf, Word2Vec, GloVe, fasttext) were used to compare all candidates to a target candidate by calculating cosine similarity. This was also done using a sentence embedding model, Sentence BERT.
 -  Learn to Rank model:  A learn to rank model was created with PyTorch, RankNet and SentenceBert to compare all candidates to a target candidate. The output is a list of probabilities a candidate would rank lower than a target candidate.  Top candidates having a .50 probabilty of ranking lower and lower candidates approaching 1.0 probability of ranking lower.
 -  Starred Candidate ranking: Ranking system that uses SentenceBERT to compare candidates to a user inputed job title and optionally up to five user inputted or "starred" candidates.  If no starred candidates are selected the system will only compare to the inputted job title.
