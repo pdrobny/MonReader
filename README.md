@@ -34,23 +34,23 @@ An AI-powered reading assistant designed to help visually impaired users by extr
 ├── README.md
 ```
 ##  Installation and Setup
-Pageflip detection:
-   IDE:  Google Colab
-   Python Version:  3.11
-   Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
-OCR text Extraction:
-   IDE:  Google Colab
-   Python Version:  3.11
-   Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
-Text-to-speech TTS:
-   IDE:  Google Colab
-   Python Version:  3.11
-   Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
-App Building and Deployment:
-   IDE: VS
-   Web Framework: Flask
-   Containerization: Docker
-   Web hosting:  AWS EC2
+### Pageflip detection:
+- IDE:  Google Colab
+- Python Version:  3.11
+- Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
+### OCR text Extraction:
+- IDE:  Google Colab
+- Python Version:  3.11
+- Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
+### Text-to-speech TTS:
+- IDE:  Google Colab
+- Python Version:  3.11
+- Python Packages:  pandas, numpy, matplotlib, seaborn, warnings, logging, requests, sys, regex, plotly, fasttest sklearn, wordcloud, sentence_transformers, gensim, tensorflow, torch, torchview, transformers, huggingface_hub, random, peft, trl, groq
+### App Building and Deployment:
+- IDE: VS
+- Web Framework: Flask
+- Containerization: Docker
+- Web hosting:  AWS EC2
 
 ## Data Description
 For the page flip detection the data provided were .jpg images clipped from a page flipping video and labelled as flip or notflip and split between training and test sets.  The training set contains ~1100 images eachof flip and not flip.  The test set contains ~1100 images eachof flip and not flip.
